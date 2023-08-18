@@ -28,6 +28,9 @@ console.log(pathname);
             <Nav.Link as={Link} href="/static" active={pathname=='/static'}>
               Static
             </Nav.Link>
+            <Nav.Link as={Link} href="/dynamic" active={pathname=='/dynamic'}>
+              Dynamic
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

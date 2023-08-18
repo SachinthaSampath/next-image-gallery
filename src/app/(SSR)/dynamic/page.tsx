@@ -1,18 +1,24 @@
+import { Alert } from "@/components/bootstrap";
 import { UnsplashImage } from "@/models/unsplash-image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Alert } from "@/components/bootstrap";
 
 //define more specific metadata
 export const metadata = {
-  title: "Static Fetching - NextJS Image Gallery",
+  title: "Dynamic Fetching - NextJS Image Gallery",
 };
 
-//this by default run on the server
+//make page dynamic
+// export const revalidate =0;
+
 const Page = async () => {
   const response = await fetch(
-    `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_ACCESS_KEY}`
+    `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_ACCESS_KEY}`,
+    {
+        //set no-cache / no-store (same) to dynamically create, define cache strategy for each request
+        cache:"no-cache"
+    }
   );
   const image: UnsplashImage = await response.json();
 
@@ -36,7 +42,7 @@ const Page = async () => {
         alt={image.description}
         className="rounded shadow mw-100 h-100"
       />
-      
+
       <Link href={"/users/" + image.user.username}>{image.user.username}</Link>
     </div>
   );
