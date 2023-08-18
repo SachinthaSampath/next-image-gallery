@@ -10,7 +10,11 @@ export interface UnsplashImage {
     raw: string;
     regular: string;
   };
-  
+
   width: number;
   height: number;
+}
+
+export interface UnsplashSearchResponse {
+  results: UnsplashImage[];
 }
