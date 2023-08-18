@@ -33,7 +33,7 @@ const Page = async () => {
         refreshing the page until we compile the project again.{" "}
       </Alert>
       <Image
-        src={image.urls.raw}
+        src={image.urls.regular}
         width={width}
         height={height}
         alt={image.description}

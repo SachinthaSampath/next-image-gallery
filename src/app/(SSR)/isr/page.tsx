@@ -36,7 +36,7 @@ const Page = async () => {
         every 15 seconds (after refreshing the page) and then serverd from the cache for that duration. 
       </Alert>
       <Image
-        src={image.urls.raw}
+        src={image.urls.regular}
         width={width}
         height={height}
         alt={image.description}

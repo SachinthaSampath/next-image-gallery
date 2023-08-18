@@ -37,7 +37,7 @@ const Page = async () => {
         you get a new image from the Unsplash API.
       </Alert>
       <Image
-        src={image.urls.raw}
+        src={image.urls.regular}
         width={width}
         height={height}
         alt={image.description}
