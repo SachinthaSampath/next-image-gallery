@@ -6,20 +6,19 @@ import React from "react";
 
 //define more specific metadata
 export const metadata = {
-  title: "Dynamic Fetching - NextJS Image Gallery",
+  title: "Incremental Static Generation - NextJS Image Gallery",
 };
 
 //make page dynamic
+// set revalidate for the entire page
 // export const revalidate =0;
 
 const Page = async () => {
   const response = await fetch(
     `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_ACCESS_KEY}`,
-    {
-        //set no-cache / no-store (same) to dynamically create, define cache strategy for each request
-        cache:"no-cache",
-        //settting revalidate per request is also possible
-        // next:{revalidate:0}
+    { 
+      //set revalidate per request
+      next:{revalidate:15}
     }
   );
   const image: UnsplashImage = await response.json();
@@ -33,8 +32,8 @@ const Page = async () => {
   return (
     <div className="d-flex flex-column align-items-center">
       <Alert>
-        This page <b>fetches data dynamically.</b> Every time you refresh the page, 
-        you get a new image from the Unsplash API.
+        This page uses <b>incremental static generation</b> A new image is fetched
+        every 15 seconds (after refreshing the page) and then serverd from the cache for that duration. 
       </Alert>
       <Image
         src={image.urls.raw}
