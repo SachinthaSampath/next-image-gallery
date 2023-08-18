@@ -5,8 +5,7 @@ export default function Home() {
     <div>
       <Alert>
         <p>
-          This is a sample project to showcase and learn the new{" "}
-          <strong>NextJS 13 app directory</strong> and its features, including:
+          This is a sample project to showcase and learn the new <strong>NextJS app directory</strong> and its features, including:
         </p>
         <ul>
           <li>static and dynamic server-side rendering</li>
@@ -22,20 +21,8 @@ export default function Home() {
           bar to try them out.
         </p>
       </Alert>
-      <Alert variant="secondary">
-        <p>
-          Note: In order to load the data on this site, you need to get a{" "}
-          <a href="https://unsplash.com/developers">
-            free API key from Unsplash
-          </a>{" "}
-          and add it to your <code>.env.local</code> file as{" "}
-          <code>UNSPLASH_ACCESS_KEY</code>.
-        </p>
-        <p className="mb-0">
-          Unsplash has a free quota of 50 requests per hour so you might start
-          getting errors if you try too often.
-        </p>
-      </Alert>
+      
+      
     </div>
   );
 }
