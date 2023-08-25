@@ -11,7 +11,7 @@ export default function Home() {
   async function serverAction() {
     "use server";
     console.log("server action executed");
-  }
+  } 
 
   return (
     <form action={serverAction}>
