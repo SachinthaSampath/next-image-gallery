@@ -2,7 +2,7 @@ export default function Home({ comments }: { comments: any }) {
   return (
     <main>
       <h1>Comments</h1>
-      {comments.map((c) => (
+      {comments.map((c:{id:string,name:string,body:string}) => (
         <div key={c.id} className="flex flex-row gap-2">
           <h2>
             {c.name} - {c.id}
